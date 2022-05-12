@@ -48,3 +48,26 @@
         transition: all 0.4s ease-in-out;
     }
 }
+
+.btn-text{
+    &:link,
+    &:visited{
+        font-size: 1.6rem;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: .1rem solid $color-primary;
+        padding: .3rem;
+        transition: all .2s;
+    }
+    &:hover, &:focus{
+        color: $color-white;
+        background-color: $color-primary;
+        box-shadow: 0 1rem 2rem rgba($color-dark, .15);
+        transform: translateY(-2px);
+    }
+    &:active{
+        box-shadow: 0 .5rem 1rem rgba($color-dark, .15);
+        transform: translateY(0);
+    }
+}
