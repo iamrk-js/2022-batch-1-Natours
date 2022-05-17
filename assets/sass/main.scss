@@ -11,12 +11,19 @@
 
 @import "./component/buttons";
 @import "./component/composition";
-@import "./component/feature-box";
-
-@import "./layout/grids";
+@import "./component/feature-box";  
+@import "./component/card";
+@import "./component/bg-video"; 
+@import "./component/story";     
+@import "./component/form";       
+    
+@import "./layout/grids";  
 @import "./layout/header";
-
+@import "./layout/footer";  
+@import "./layout/navigation";
+  
 @import "./pages/home";
 
 
 
+ 
