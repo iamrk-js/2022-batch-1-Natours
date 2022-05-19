@@ -20,6 +20,7 @@
         display: inline-block;
         margin-top: calc(3.5rem - 1px);
         position: relative;
+      
         &::after, &::before{
             content: '';
             width: 3rem;
@@ -27,6 +28,7 @@
             position: absolute;
             background-color: $color-grey-dark1;
             left: 0;
+            transition: all .3s;
         }
         &::after{
             top: .8rem;
@@ -41,15 +43,74 @@
         border-radius: 50%;
         background-image: linear-gradient($color-primary-light, $color-primary-dark);
         position: fixed;
-        top: 4.5rem; 
+        top: 4.5rem;  
         right: 4.5rem;
         z-index: 10;
-        transition: all .8s cubic-bezier(0.77, 0, 0.175, 1);
+        transition:transform 0.8s cubic-bezier(0.86, 0, 0.07, 1),-webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     }
-
+    &-nav{
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 0;
+        height: 100vh;
+        text-align: center;
+        z-index: 80;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: all .8s cubic-bezier(.68, -0.55,0.25,1.5);
+    }
+    &-list{
+        list-style: none;
+    }
+    &-item{
+        margin: 1rem;
+    }
+    &-link{
+        &:link,&:visited{
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color-white;
+            padding: 1rem 2rem;
+            background-image: linear-gradient(120deg,transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 225%;
+            transition: all .4s;
+            span{
+                display: inline-block;
+                margin-right: 1.5rem;
+            }
+        }
+        &:hover, &:focus, &:active{
+            background-position: 100%;
+            color: $color-primary;
+            font-weight: 700;
+            transform: translateX(1rem);
+        }
+    }
     &.active{
         .navigation-background{
             transform: scale(50); 
+        }
+        .navigation-nav{
+            left: 0%;
+            opacity: 1;
+            width: 100vw; 
+        }
+        .navigation-icon{
+            background-color: transparent;
+            &::after{
+                transform: rotate(-135deg);
+                top: 0;
+            }
+            &::before{
+                transform: rotate(135deg);
+                top: 0;
+            }
         }
     }
 }
